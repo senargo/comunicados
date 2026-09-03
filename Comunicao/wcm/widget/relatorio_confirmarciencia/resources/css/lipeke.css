@@ -1,0 +1,480 @@
+.wcm_widget {
+    background-color: inherit !important;
+    border: 0px !important;
+    box-shadow: none !important;
+}
+
+body {
+    overflow: auto !important;
+}
+
+
+.bg-green {
+    background-color: green !important;
+}
+
+.lipeke-container-wrap{
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+
+.lipeke-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 10px;
+}
+
+.lipeke-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin-right: 10px;
+}
+
+.lipeke-col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-right: 20px;
+}
+
+.lipeke-panel {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid rgb(234 233 233);
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    height: fit-content;
+    margin: 5px;
+    padding-bottom: 10px;
+}
+
+.lipeke-panel-clean {
+    width: 100%;
+    min-height: 100px;
+    height: fit-content;
+    margin: 5px;
+}
+
+.lipeke-panel-header {
+    width: 45%;
+    height: 40px;
+    color: white;
+    padding-top: 7px;
+    padding-left: 20px;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    line-height: 1.42857143;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(92, 92, 92);
+    position: relative;
+    float: left;
+}
+
+.lipeke-panel-header-status{
+    padding-left: 0px;
+    text-align: center;
+    float: right;
+    width: 55%;
+}
+
+.lipeke-panel-footer-sm {
+    width: 100%;
+    height: 20px;
+    padding-top: 1px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.lipeke-panel-header-act {
+    text-align: right;
+    padding-top: 5px;
+    padding-right: 4%;
+    float: right
+}
+
+.lipeke-panel-content {
+    width: auto;
+    height: auto;
+    margin: 5px;
+    padding-top: 10px;
+    clear: both;
+}
+
+.lipeke-panel-footer-action {
+    display:flex;
+    flex-direction: row-reverse;
+    cursor: pointer;
+}
+
+.lipeke-action-item {
+    margin-right: 16px !important;
+}
+
+.lipeke-hover-scale:hover{  
+    cursor: pointer;
+    transform: scale(1.3);
+    transition: 0.3s;
+}
+
+.lipeke-hover-bg-orange:hover{
+    background-color: orangered !important
+}
+
+.info{
+    color: blue;
+}
+
+.bg-info{
+    background-color: blue;
+}
+
+.lipeke-btn{
+    text-decoration: none !important;
+    color: #fff !important;
+    background-color: #2658a6;
+    text-align: center !important;
+    letter-spacing: .5px !important;
+    -webkit-transition: background-color .2s ease-out !important;
+    transition: background-color .2s ease-out !important;
+    cursor: pointer !important;
+    border: none !important;
+    border-radius: 2px !important;
+    display: inline-block !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    padding: 0 16px !important;
+    text-transform: uppercase !important;
+    vertical-align: middle !important;
+    -webkit-tap-highlight-color: transparent !important;
+    margin-right: 5px !important;
+}
+
+.lipeke-btn:hover{
+    transform: scale(1.1);
+    transition: .2s
+}
+
+.lipeke-icon-right{
+    float: right;
+    margin-left: 15px;
+    margin-top: 5%;
+}
+
+.lipeke-icon-left{
+    float: left;
+    margin-right: 15px;
+    margin-top: 5%;
+}
+
+
+textarea {
+    resize: vertical
+}
+
+textarea::-webkit-scrollbar {
+    width: 1em;
+}
+
+textarea::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+.lipeke-link {
+    cursor: pointer;
+}
+
+.lipeke-link:hover {
+    cursor: pointer;
+    color: orangered !important;
+    transform: scale(1.3);
+    transition: 0.3s;
+}
+
+.lipeke-attach {
+
+    width: 98%;
+    height: 100%;
+    min-height: 60px;
+    margin-left: 1%;
+    position: relative;
+    float: left;
+
+}
+
+.lipeke-attach-item {
+    display: flex;
+    flex-flow: row nowrap;
+    border: 1px solid rgb(234 233 233);
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    height: fit-content;
+    margin: 5px;
+}
+.lipeke-attach-item-decor {
+    width: 10px;
+    background-color: rgb(92, 92, 92);
+}
+
+.lipeke-attach-item-text {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+}
+
+.lipeke-attach-item-act {
+    width: 14%;
+    text-align: right;
+    padding-top: 6px;
+    padding-right: 10px;
+}
+
+.lipeke-leButton {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.lipeke-leButton:hover {
+    cursor: pointer;
+    color: orangered !important;
+    transform: scale(1.3);
+    transition: 0.3s;
+}
+
+.lipeke-botoneira {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    outline: none;
+    border: none;
+    border-radius: 0px;
+    background-color: transparent;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif !important;
+    font-size: 14px !important;
+    padding: 6px !important;
+    margin: 10px !important;
+    transition: 0.3s;
+}
+
+.lipeke-botoneira:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.lipeke-botoneira:active {
+    transform: scale(0.9);
+    transition: 0.2s;
+}
+
+.lipeke-botoneira-content {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+}
+
+
+.lipeke-botoneira-content > span {
+    margin-top: 4%
+}
+
+.lipeke-hoverizando:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    opacity: 1;
+    transition: 0.2s;
+}
+
+.lipeke-btn-success {
+    color: white !important;
+    background-color: #28b066 !important;
+}
+
+.lipeke-alert-bar {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    border: 1px solid rgb(234 233 233);
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    height: fit-content;
+    margin: 5px;
+}
+.lipeke-alert-bar-decor {
+    width: 10px;
+    background-color: red;
+}
+
+.lipeke-alert-bar-content {
+    width: 100%;
+    background-color: white;
+}
+
+.lipeke-alert-text {
+    margin: 10px;
+}
+
+.lipeke-subtext {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    line-height: 1.42857143;
+    font-size: 12px;
+    color: rgb(92 92 92);
+    opacity: 0.6;
+    font-weight: bold;
+
+}
+
+.lipeke-auto-boxes-inline {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 6px;
+}
+    
+.box-header-status {
+    width: 120px; 
+    padding-top: 15px; 
+    text-align: center; 
+    color: aliceblue; 
+    margin-right: 0px;
+}
+    
+.botoando-el:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform .2s;
+}
+
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+    width: 100%;
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 35%;
+    width: 9999px;
+    height: 1px;
+    background: black;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+/* OLD */
+@media (max-device-width: 900px){
+    .lipeke-container{
+        flex-flow: row wrap;
+    }
+}
+
+.lipeke-floatingButton>img:nth-child(1) {--i: 0; margin-bottom: calc(8px + var(--i) * 58px) !important;}
+.lipeke-floatingButton>img:nth-child(2) {--i: 1; margin-bottom: calc(8px + var(--i) * 58px) !important;}
+.lipeke-floatingButton>img:nth-child(3) {--i: 2; margin-bottom: calc(8px + var(--i) * 58px) !important;}
+.lipeke-floatingButton>img:nth-child(4) {--i: 3; margin-bottom: calc(8px + var(--i) * 58px) !important;}
+.lipeke-floatingButton>img:nth-child(5) {--i: 4; margin-bottom: calc(8px + var(--i) * 58px) !important;}
+
+.lipeke-floatingButton>img {
+    width: 40px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    display: block;
+    cursor: pointer;
+    z-index: 100;
+    float: right;
+    margin: 10px;
+    transition: transform .2s;
+}
+
+.lipeke-floatingButton>img:hover {
+    transform: scale(1.3);
+}
+
+@media only screen and (max-width: 1000px) {
+    .lipeke-floatingButton>img:nth-child(1) {--i: 0; margin-bottom: calc(5px + var(--i) * 65px) !important}
+    .lipeke-floatingButton>img:nth-child(2) {--i: 1; margin-bottom: calc(5px + var(--i) * 65px) !important}
+    .lipeke-floatingButton>img:nth-child(3) {--i: 2; margin-bottom: calc(5px + var(--i) * 65px) !important}
+    .lipeke-floatingButton>img:nth-child(4) {--i: 3; margin-bottom: calc(5px + var(--i) * 65px) !important}
+    .lipeke-floatingButton>img:nth-child(5) {--i: 4; margin-bottom: calc(5px + var(--i) * 65px) !important}
+
+    .lipeke-floatingButton>img {
+        width: 65px !important;
+    }
+
+    .wcm_widget {
+        margin-bottom: 60px;
+    }
+
+    .rightBox {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (min-width: 1001px) {
+    .lipeke-floatingButton>img {
+        width: 50px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .rightBox {
+        width: 600px;
+    }
+}
+
+/* basic positioning */
+.legend {
+    list-style: none;
+    padding: 10px 0px 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px
+}
+
+.legend li {
+    float: left;
+    margin-right: 10px;
+}
+
+.legend span {
+    border: 1px solid #ccc;
+    float: left;
+    width: 18px;
+    height: 18px;
+    margin: 2px;
+}
+
+.lipeke-panel > .lipeke-row {
+    margin-top: 2px;
+}

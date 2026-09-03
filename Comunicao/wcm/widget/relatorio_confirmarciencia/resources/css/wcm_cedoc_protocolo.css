@@ -1,0 +1,47 @@
+/* Coloque aqui seu codigo CSS */
+@media (min-width: 992px) {
+    .fluig-style-guide .modal-lg {
+        width: 600px !important;
+    }
+
+    .wcm-all-content{
+        padding-top: 80px !important;
+    }
+}
+
+/* Coloque aqui seu codigo CSS */
+@media (max-width: 991px) {
+    .wcm-all-content{
+        padding-top: 20px !important;
+    }
+
+    .wcm-all-content>#wcm-content, #wcm-content{
+        padding: 0px !important;
+    }
+
+    .wcm-all-content .wcm_widget {
+        padding: 2px !important;
+    }
+}
+
+i.disabled, button.disabled {
+    filter: grayscale(1);
+    opacity: 0.5;
+}
+
+.lipeke-panel-content-protocolo {
+    padding: 15px;
+}
+
+.wcm_cedoc_protocolo .lipeke-container{
+    margin-top: 10px !important;
+}
+
+.wcm_cedoc_protocolo .lipeke-row{
+    margin-right: auto !important;
+}
+
+.wcm_cedoc_protocolo .lipeke-row{
+    margin-top: 2px;
+    margin-bottom: 2px;
+}

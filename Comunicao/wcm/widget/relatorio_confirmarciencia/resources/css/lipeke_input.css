@@ -1,0 +1,444 @@
+.lipeke-input-group {
+    display: flex;
+    flex-flow: row-reverse wrap-reverse;
+    justify-content: start;
+    padding: 8px 0px 8px 0px;
+}
+
+.lipeke-input-group label {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    padding-left: 0px;
+}
+
+.ui-autocomplete {
+    overflow-x: hidden !important;
+}
+
+.lipeke-input-group input,
+textarea {
+    margin: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: solid 1px #a9a9a9;
+    padding: 2px 0px 8px;
+    width: 100%;
+    height: inherit;
+    background-color: transparent;
+    color: rgb(92, 92, 92);
+    box-shadow: none;
+    /* Firefox */
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+}
+
+.lipeke-input-group select {
+    margin: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: solid 1px #a9a9a9;
+    padding: 2px 0px 8px;
+    width: 100%;
+    height: inherit;
+    background-color: transparent;
+    color: rgb(92, 92, 92);
+    box-shadow: none;
+    /* Firefox */
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+}
+
+.lipeke-input-group input:disabled,
+.lipeke-input-group textarea:disabled {
+    border-bottom: solid 1px #bcbcbc;
+    color: rgb(176 176 176);
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+}
+
+.lipeke-input-group input:read-only,
+.lipeke-input-group textarea:read-only {
+    border-bottom: solid 1px #bcbcbc;
+    color: rgb(176 176 176);
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+    /*pointer-events: none;*/
+}
+
+.lipeke-input-group select:disabled,
+.lipeke-input-group select[readonly] {
+    border-bottom: solid 1px #bcbcbc;
+    color: rgb(176 176 176);
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+    pointer-events: none;
+}
+
+
+.lipeke-input-group input:hover,
+.lipeke-input-group textarea:hover {
+    border-bottom: solid 1px #858585;
+    background-color: whitesmoke;
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+}
+
+.lipeke-input-group select:hover {
+    border-bottom: solid 1px #858585;
+    background-color: whitesmoke;
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+}
+
+.lipeke-input-group select:focus ~label {
+   color: #008000
+}
+
+label {
+    font-weight: 700 !important;
+}
+
+
+.lipeke-input-group input:focus:read-write,
+.lipeke-input-group textarea:focus:read-write {
+    outline: none;
+    padding: 8px 3px 8px;
+    color: #008000;
+    border-bottom: solid 1px #008000;
+    background-color: whitesmoke;
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+}
+
+.lipeke-input-group input:focus:read-only,
+.lipeke-input-group textarea:focus:read-only {
+    outline: none;
+    padding: 8px 3px 8px;
+    color: #858585;
+    border-bottom: solid 1px #858585;
+    background-color: whitesmoke;
+}
+
+.lipeke-input-group select:focus {
+    outline: none;
+    padding: 8px 3px 8px;
+    color: #008000;
+    border-bottom: solid 1px #008000;
+    background-color: whitesmoke;
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+}
+
+.lipeke-input-group input:focus:read-write+label,
+.lipeke-input-group textarea:focus:read-write+label {
+    color: #008000;
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+}
+
+.lipeke-input-group-checkbox label {
+    display: block !important;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: 858585;
+}
+
+
+.likepe-checkbox {
+    position: relative;
+    margin: 1em 0;
+    text-align: left;
+    transition: scale 0.3s, color 0.3s;
+}
+
+.likepe-checkbox:hover {
+    scale: 1.06;
+    color: #008000;
+    transition: scale 0.3s, color 0.3s;
+}
+
+.lipeke-input-group-checkbox:focus-within label:first {
+    color: #008000;
+    transition: scale 0.3s, color 0.3s;
+}
+
+/*.lipeke-input-group-checkbox:not(.lipeke-input-group-checkbox-inline)>.lipeke-check {
+    display: block !important;
+    margin-right: 1.4em;
+    width: 100% !important;
+}
+
+.lipeke-input-group-checkbox-inline>.lipeke-check {
+    display: inline-block !important;
+    margin-right: 1.4em;
+}*/
+
+.likepe-checkbox label {
+    cursor: pointer;
+    display: inline-block !important;
+    line-height: 1.25em;
+    vertical-align: top;
+    clear: both;
+    padding-left: 1px;
+}
+
+.likepe-checkbox label:not(:empty) {
+    padding-left: 0.75em;
+}
+
+.likepe-checkbox label:before,
+.likepe-checkbox label:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.likepe-checkbox label:before {
+    width: 1.25em;
+    height: 1.25em;
+    background: #fff;
+    border: 2px solid rgba(0, 0, 0, 0.54);
+    border-radius: 0.125em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.likepe-checkbox input[type="checkbox"] {
+    outline: 0;
+    visibility: hidden;
+    width: 1.25em;
+    margin: 0;
+    display: block;
+    float: left;
+    font-size: inherit;
+}
+
+.likepe-checkbox input[type="checkbox"]:checked+label:before {
+    background: #337ab7;
+    border: none;
+}
+
+.likepe-checkbox input[type="checkbox"]:disabled+label {
+    color: rgb(176 176 176);
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+}
+
+.likepe-checkbox input[type="checkbox"][readonly]+label {
+    color: rgb(176 176 176);
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+}
+
+.likepe-checkbox input[type="checkbox"]:checked+label:after {
+    transform: translate(0.25em, 0.3365384615em) rotate(-45deg);
+    width: 0.75em;
+    height: 0.375em;
+    border: 0.125em solid #fff;
+    border-top-style: none;
+    border-right-style: none;
+}
+
+.likepe-checkbox:has(input[type=checkbox]:disabled),
+.likepe-checkbox:has(input[type=checkbox][readonly]) {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+
+
+.likepe-checkbox>input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    background-color: green;
+}
+
+.likepe-checkbox>input:checked {
+    background-color: green;
+}
+
+.lipeke-input-group-checkbox-label {
+    width: 100%;
+    margin-top: 7px;
+}
+
+.lipeke-input-group-checkbox-inline {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    right: 40px;
+    margin-bottom: 6px;
+}
+
+.lipeke-input-group-checkbox-incol {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6px;
+}
+
+/* Customize the label (the container) */
+.lipeke-check {
+    position: relative;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: color 0.3s, scale 0.3s;
+    height: auto;
+    margin-top: 5px;
+}
+
+.lipeke-check:hover {
+    color: #008000;
+    scale: 1.05;
+    transition: color 0.3s, scale 0.3s;
+}
+
+.lipeke-input-group-checkbox-incol > .lipeke-check:hover {
+    scale: 1.005;
+}
+
+/* Hide the browser's default checkbox */
+.lipeke-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.lipeke-check-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.lipeke-check:hover input~.lipeke-check-box {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.lipeke-check input:checked~.lipeke-check-box {
+    background-color: #008000;
+}
+
+.lipeke-check:has(input[type='checkbox']:disabled),
+.lipeke-check:has(input[type='checkbox'][readonly]) {
+    color: rgb(176 176 176);
+    transition: background-color 0.3s, border-bottom 0.3s, padding 0.3s, color 0.3s;
+    pointer-events: none;
+}
+
+.lipeke-check:has(input[type='checkbox']:disabled:checked) span.lipeke-check-box,
+.lipeke-check:has(input[type='checkbox'][readonly]:checked) span.lipeke-check-box {
+    background-color: rgba(0, 128, 0, 0.6);
+}
+
+.lipeke-check:has(input[type='checkbox']:disabled:NOT(:checked)) span.lipeke-check-box,
+.lipeke-check:has(input[type='checkbox'][readonly]:NOT(:checked)) span.lipeke-check-box {
+    background-color: rgba(204, 204, 204, 0.6);
+}
+
+div:has(.lipeke-check):has(input[type='checkbox']:focus)>.lipeke-input-group-checkbox-label>label,
+div:has(.lipeke-check):has(input[type='checkbox']:hover)>.lipeke-input-group-checkbox-label>label,
+div:has(.lipeke-check):has(.lipeke-input-group-checkbox-inline:focus)>.lipeke-input-group-checkbox-label>label,
+div:has(.lipeke-check):has(.lipeke-input-group-checkbox-incol:focus)>.lipeke-input-group-checkbox-label>label
+{
+    color: #008000;
+    transition: scale 0.3s, color 0.3s;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.lipeke-check-box:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.lipeke-check input:checked~.lipeke-check-box:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.lipeke-check .lipeke-check-box:after {
+    left: 8px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.lipeke-btn {
+    text-decoration: none !important;
+    color: #fff !important;
+    background-color: #26a69a;
+    text-align: center !important;
+    letter-spacing: .5px !important;
+    -webkit-transition: background-color .2s ease-out !important;
+    transition: background-color .2s ease-out !important;
+    cursor: pointer !important;
+    border: none !important;
+    border-radius: 2px !important;
+    display: inline-block !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    padding: 0 16px !important;
+    text-transform: uppercase !important;
+    vertical-align: middle !important;
+    -webkit-tap-highlight-color: transparent !important;
+    margin-right: 5px !important;
+}
+
+.lipeke-btn:hover {
+    opacity: 0.8;
+}
+
+.lipeke-btn:active {
+    opacity: 0.7;
+    scale: 0.95;
+}
+
+.success {
+    background-color: #176ab3 !important;
+}
+
+
+.lipeke-btn-mass {
+    text-decoration: none !important;
+    color: #fff !important;
+    background-color: #26a69a;
+    text-align: center !important;
+    letter-spacing: .5px !important;
+    -webkit-transition: background-color .2s ease-out !important;
+    transition: background-color .2s ease-out !important;
+    cursor: pointer !important;
+    border: none !important;
+    border-radius: 2px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    padding: 0 16px !important;
+    text-transform: uppercase !important;
+    vertical-align: middle !important;
+    -webkit-tap-highlight-color: transparent !important;
+    margin-right: 5px !important;
+}
+
+
+.lipeke-btn-mass:hover {
+    opacity: 0.8;
+}
