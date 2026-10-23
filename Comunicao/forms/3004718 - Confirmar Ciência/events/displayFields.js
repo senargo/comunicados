@@ -2,14 +2,18 @@ function displayFields(form,customHTML){
   var dsForm = 'protocolo_senar';
 
 	var documentos_anexosValue = form.getValue('documentos_anexos');
-	var anexosParse = JSON.parse(documentos_anexosValue);
+	var anexosParse = [];
+	try {
+		anexosParse = JSON.parse(documentos_anexosValue || "[]");
+	} catch (eAnexos) {
+		anexosParse = [];
+	}
 
-	var fileName = anexosParse[0].documentDescription;
-	var documentId = anexosParse[0].documentId;
-
-	var documentUrl = fluigAPI.getDocumentService().getDownloadURL(documentId);
-
-	anexosParse[0].documentUrl = documentUrl;
+	if (anexosParse.length > 0 && anexosParse[0].documentId) {
+		anexosParse[0].documentUrl = fluigAPI.getDocumentService().getDownloadURL(anexosParse[0].documentId);
+	} else {
+		anexosParse = [{ documentId: "", documentDescription: "", documentUrl: "" }];
+	}
 
 	var atividadeAtual = getValue("WKNumState");
 
@@ -26,7 +30,11 @@ function displayFields(form,customHTML){
 
 	var IS_INICIAL = atividadeAtual == ATIVIDADE_NOVO || atividadeAtual == ATIVIDADE_INICIO || atividadeAtual == ATIVIDADE_CORRIGIR;
 
-  customHTML.append("<script>\n");
+	customHTML.append("<script>\n");
+	customHTML.append(" var TIPO_CONTEUDO = " + JSONUtil.stringify(String(form.getValue("tipo_conteudo") || "pdf")) + ";\n");
+	customHTML.append(" var URL_CONTEUDO = " + JSONUtil.stringify(String(form.getValue("url_conteudo") || "")) + ";\n");
+	customHTML.append(" var TEXTO_BOTAO_ACAO = " + JSONUtil.stringify(String(form.getValue("texto_botao_acao") || "Ciente")) + ";\n");
+	customHTML.append(" var EXIBIR_POPUP = " + JSONUtil.stringify(String(form.getValue("exibir_popup") || "N")) + ";\n");
 	customHTML.append(" var DOCUMENTOS_ANEXOS = " + JSONUtil.stringify(anexosParse[0]) + ";\n" +
 	" const ATIVIDADE_NOVO = "+ ATIVIDADE_NOVO +";\n" +
 	" const ATIVIDADE_INICIO = "+ATIVIDADE_INICIO+";\n" +
@@ -59,19 +67,18 @@ function displayFields(form,customHTML){
 	);
 	customHTML.append("</script>");
 
-	if (IS_INICIAL) {
-
-		var sdtf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		var sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-		form.setValue("data_solicitacao", sdtf.format(new java.util.Date()));
-		
-		form.setValue("nome_solicitante", nome);
-		form.setValue("codigo_solicitante", codigo);
-		form.setValue("email_solicitante", email);
-		form.setValue("matricula_solicitante", 'df48c9fdc01d4defb19ec9e389d71973');
-		form.setValue("usuario_matricula", 'df48c9fdc01d4defb19ec9e389d71973');
+	var numProces = getValue("WKNumProces");
+	if (numProces && !form.getValue("numero_processo")) {
+		form.setValue("numero_processo", String(numProces));
 	}
 
+	if (!form.getValue("data_solicitacao")) {
+		var sdtf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		form.setValue("data_solicitacao", sdtf.format(new java.util.Date()));
+	}
 
+	if (!form.getValue("campo_descritor") && form.getValue("assunto")) {
+		form.setValue("campo_descritor", "Confirmar ciência " + form.getValue("assunto"));
+	}
 
 }

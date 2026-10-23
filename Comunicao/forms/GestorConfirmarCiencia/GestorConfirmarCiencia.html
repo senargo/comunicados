@@ -1,65 +1,116 @@
 <html>
   <head>
+    <!--
+      Contrato (passos 0 e 1) — três papéis, sem misturar:
+      1) MESTRE: este formulário / processo GestorConfirmarCiencia.
+         Cadastro administrativo. Status: AGENDADO | ATIVO | EXPIRADO | CANCELADO.
+         Flags cancelado/excluído interrompem o disparo.
+      2) CIÊNCIA: um ConfirmarCiencia por destinatário, com numero_processo_pai = numero_processo deste mestre.
+      3) HOME: widget wid_comunicado_home só exibe e coleta ciência; não grava cadastro.
+
+      Painel admin lista mestres. Cards de RH são detalhe de ciência (passo 3).
+      Dataset de ficha: GestorConfirmarCiencia. Não criar JDBC. dsComunicadosListar não deve ser alterado.
+      Categoria: CEDOC. Menu no Fluig fica por último.
+    -->
     <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
     <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
     <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
-    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script> 
-
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
-    
-
+    <script type="text/javascript" src="custom.js"></script>
   </head>
-
   <body>
     <div class="fluig-style-guide">
       <form name="form" role="form">
         <input type="hidden" id="campo_descritor" name="campo_descritor" />
-        <input type="hidden" id="numero_processo" name="numero_processo" />
-        <input type="hidden" id="numero_processo_pai" name="numero_processo_pai" />
-        <input type="hidden" id="processo_origem" name="processo_origem" />
+        <input type="hidden" id="publico_tipo" name="publico_tipo" />
+        <input type="hidden" id="publico_grupos" name="publico_grupos" />
+        <input type="hidden" id="publico_usuarios" name="publico_usuarios" />
+        <input type="hidden" id="excecao_grupos" name="excecao_grupos" />
+        <input type="hidden" id="excecao_usuarios" name="excecao_usuarios" />
         <input type="hidden" id="documentos_anexos" name="documentos_anexos" />
-        <input type="hidden" id="data_solicitacao" name="data_solicitacao" />
-        <input type="hidden" id="data_ciencia" name="data_ciencia" />
-        <input type="hidden" id="resultado" name="resultado" />
-        <input type="hidden" id="observacao_negativa" name="observacao_negativa" />
+        <input type="hidden" id="tipo_conteudo" name="tipo_conteudo" />
+        <input type="hidden" id="url_conteudo" name="url_conteudo" />
+        <input type="hidden" id="criado_por" name="criado_por" />
+        <input type="hidden" id="qtd_destinatarios" name="qtd_destinatarios" />
+        <input type="hidden" id="publicado" name="publicado" />
+        <input type="hidden" id="cancelado" name="cancelado" />
+        <input type="hidden" id="excluido" name="excluido" />
+        <input type="hidden" id="usuarios_disparados" name="usuarios_disparados" />
+        <input type="hidden" id="sem_data_expiracao" name="sem_data_expiracao" />
+        <input type="hidden" id="exibir_popup" name="exibir_popup" />
+        <input type="hidden" id="agendamento_futuro" name="agendamento_futuro" />
 
-        <input type="hidden" class="form-control" id="usuario_nome" name="usuario_nome" readonly />
-        <input type="hidden" class="form-control" id="usuario_codigo" name="usuario_codigo" readonly />
-        <input type="hidden" class="form-control" id="usuario_email" name="usuario_email" readonly />
-        <input type="hidden" class="form-control" id="usuario_matricula" name="usuario_matricula" readonly />
-
-				<div class="panel panel-primary" id="painel_identificacao">
+        <div class="panel panel-primary">
           <div class="panel-heading">
-            <h3 class="panel-title"><i class="flaticon flaticon-card-user icon-md"></i> Confirmar ciência de documento</h3>
+            <h3 class="panel-title">Comunicado e Ciência</h3>
           </div>
           <div class="panel-body">
             <div class="row">
-              <div class="col-md-12 col-xs-12 form-group">
-                <label for="assunto">Assunto:</label>
-                <input type="text" class="form-control" id="assunto" name="assunto" disabled/>
+              <div class="col-md-12 form-group">
+                <label for="titulo">Título</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" />
               </div>
-              <div class="col-md-12 col-xs-12 form-group">
-                <label id="observacao_label" for="observacao">Observação:</label>
-                <textarea type="textarea" class="form-control" id="observacao" name="observacao" rows="2" title="Observação" disabled></textarea>
+              <div class="col-md-12 form-group">
+                <label for="descricao">Descrição</label>
+                <textarea class="form-control" id="descricao" name="descricao" rows="4"></textarea>
+              </div>
+              <div class="col-md-4 form-group">
+                <label for="data_inicio">Data de início</label>
+                <input type="date" class="form-control" id="data_inicio" name="data_inicio" />
+              </div>
+              <div class="col-md-4 form-group">
+                <label for="data_fim">Data de fim</label>
+                <input type="date" class="form-control" id="data_fim" name="data_fim" />
+              </div>
+              <div class="col-md-4 form-group">
+                <label for="texto_botao_acao">Texto do botão de ação</label>
+                <input type="text" class="form-control" id="texto_botao_acao" name="texto_botao_acao" value="Ciente" />
+              </div>
+              <div class="col-md-4 form-group">
+                <label>
+                  <input type="checkbox" id="sem_data_expiracao_ck" name="sem_data_expiracao_ck" data-flag="sem_data_expiracao" />
+                  Sem data de expiração
+                </label>
+              </div>
+              <div class="col-md-4 form-group">
+                <label>
+                  <input type="checkbox" id="exibir_popup_ck" name="exibir_popup_ck" data-flag="exibir_popup" />
+                  Exibir como Popup
+                </label>
+              </div>
+              <div class="col-md-4 form-group">
+                <label>
+                  <input type="checkbox" id="agendamento_futuro_ck" name="agendamento_futuro_ck" data-flag="agendamento_futuro" />
+                  Agendamento futuro
+                </label>
               </div>
             </div>
           </div>
-        </div>		
+        </div>
 
-        <div class="panel panel-primary" id="painel_identificacao">
+        <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><i class="flaticon flaticon-card-user icon-md"></i> Confirmar ciência de documento</h3>
+            <h3 class="panel-title">Controle da ficha</h3>
           </div>
           <div class="panel-body">
             <div class="row">
-              <div class="col-md-12 col-xs-12 form-group">
-                <label for="assunto">Assunto:</label>
-                <input type="text" class="form-control" id="assunto" name="assunto" disabled/>
+              <div class="col-md-3 form-group">
+                <label for="numero_processo">Nº processo</label>
+                <input type="text" class="form-control" id="numero_processo" name="numero_processo" readonly />
               </div>
-              <div class="col-md-12 col-xs-12 form-group">
-                <label id="observacao_label" for="observacao">Observação:</label>
-                <textarea type="textarea" class="form-control" id="observacao" name="observacao" rows="2" title="Observação" disabled></textarea>
+              <div class="col-md-3 form-group">
+                <label for="status">Status (AGENDADO, ATIVO, EXPIRADO, CANCELADO)</label>
+                <input type="text" class="form-control" id="status" name="status" readonly />
+              </div>
+              <div class="col-md-3 form-group">
+                <label for="data_criacao">Data de criação</label>
+                <input type="text" class="form-control" id="data_criacao" name="data_criacao" readonly />
+              </div>
+              <div class="col-md-3 form-group">
+                <label for="criado_por_nome">Criado por</label>
+                <input type="text" class="form-control" id="criado_por_nome" name="criado_por_nome" readonly />
               </div>
             </div>
           </div>

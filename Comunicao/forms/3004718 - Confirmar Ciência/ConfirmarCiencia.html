@@ -9,7 +9,7 @@
     <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
 
     <script type="text/javascript" src="FluigUtils.js?v1"></script>
-    <script type="text/javascript" src="custom.js?v13"></script>
+    <script type="text/javascript" src="custom.js?v14"></script>
     
 
   </head>
@@ -26,6 +26,10 @@
         <input type="hidden" id="data_ciencia" name="data_ciencia" />
         <input type="hidden" id="resultado" name="resultado" />
         <input type="hidden" id="observacao_negativa" name="observacao_negativa" />
+        <input type="hidden" id="tipo_conteudo" name="tipo_conteudo" />
+        <input type="hidden" id="url_conteudo" name="url_conteudo" />
+        <input type="hidden" id="texto_botao_acao" name="texto_botao_acao" />
+        <input type="hidden" id="exibir_popup" name="exibir_popup" />
 
         <input type="hidden" class="form-control" id="usuario_nome" name="usuario_nome" readonly />
         <input type="hidden" class="form-control" id="usuario_codigo" name="usuario_codigo" readonly />
@@ -46,14 +50,14 @@
                 <label id="observacao_label" for="observacao">Observação:</label>
                 <textarea type="textarea" class="form-control" id="observacao" name="observacao" rows="2" title="Observação" disabled></textarea>
               </div>
-              <div class="col-md-12 col-xs-12 form-group" id="pdf-container">
+              <div class="col-md-12 col-xs-12 form-group" id="conteudo-container">
                 <div id="adobe-dc-view" style="width: 100%"></div>
+                <div id="conteudo-alternativo"></div>
                 <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
                 <script type="text/javascript">
                   document.addEventListener("adobe_dc_view_sdk.ready", function()
                   {
                       adobeDCView = new AdobeDC.View({clientId: "5d4181db4f854cd7a4d999cb0718782c", divId: "adobe-dc-view"});
-                      // teste efdc0c242678444b92ebbdc305d751d2
                   });
                 </script>
               </div>

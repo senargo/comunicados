@@ -14,7 +14,7 @@ class RecursosHumanosEventHandler {
             this.view.initView();
         })
 
-        $("#doAdd").on('click', () => alert('Em desenvolvimento...'))
+        $("#doAdd").on('click', () => this.controller.openNovoComunicado())
     }
 
     bindClickOnList() {

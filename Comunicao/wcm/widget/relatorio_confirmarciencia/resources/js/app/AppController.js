@@ -110,44 +110,19 @@ class AppController {
       .filter((el) => el.permission != "isTI")
       .filter((el) => el.enabled);
 
+    // Menu no Fluig fica por último. Grade mestre na página de teste.
     if (permissions.recursoshumanos) {
       this.injectPanel(
-        "Recursos Humanos",
+        "Comunicado e Ciência",
         () =>
-          new RecursosHumanosController({
+          new ComunicadoController({
             email: this.email,
             colleagueId: this.colleagueId,
-          })
-      );
-    } else if (permissions.colaboradores) {
-      this.injectPanel(
-        "Colaboradores",
-        () =>
-          new ColaboradoresController({
-            email: this.email,
-            colleagueId: this.colleagueId,
-          })
-      );
-    } else if (permissions.mobilizador) {
-      this.injectPanel(
-        "Mobilizador",
-        () =>
-          new MobilizadorController({
-            email: this.email,
-            colleagueId: this.colleagueId,
-          })
-      );
-    } else if (permissions.coordenacaoRegional) {
-      this.injectPanel(
-        "Coordenacao Regional",
-        () =>
-          new BaseController({
-            email: this.email,
-            colleagueId: this.colleagueId,
+            userData: this.userData,
           })
       );
     } else {
-      this.injectPanel("Protocolo Senar", () => {
+      this.injectPanel("Comunicado e Ciência", () => {
         $("#content-inject").html(this.view.getNoPermissionView());
       });
     }

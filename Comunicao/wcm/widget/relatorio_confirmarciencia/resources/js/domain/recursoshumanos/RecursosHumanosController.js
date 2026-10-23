@@ -86,4 +86,16 @@ class RecursosHumanosController {
       }, true)
     });
   }
+
+  openNovoComunicado() {
+    if (!this.cadastroComunicado) {
+      this.cadastroComunicado = new ComunicadoController({
+        email: this.email,
+        colleagueId: this.colleagueId,
+        userData: this.userData,
+        cadastroOnly: true,
+      });
+    }
+    this.cadastroComunicado.view.openModal(null);
+  }
 }

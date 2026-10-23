@@ -1,7 +1,7 @@
 application.type=widget
 application.code=relatorio_confirmarciencia
-application.title=Acompanhamento das Confirmações de Ciência Teste
-application.description=Acompanhamento das Confirmações de Ciência
+application.title=Comunicado e Ciência
+application.description=Painel administrativo de comunicados institucionais
 application.category=CEDOC
 application.renderer=freemarker
 developer.code=khyquer
@@ -9,17 +9,23 @@ developer.name=Khyquer Ronaldy
 developer.url=http://fluig.sistemafaeg.org.br
 application.uiwidget=true
 application.mobileapp=true
-application.version=${build.version}-${build.revision}
+application.version=1.8.4-20261021a
 view.file=view.ftl
 edit.file=edit.ftl
 locale.file.base.name=relatorio_confirmarciencia
 application.resource.js.1=/resources/js/relatorio_confirmarciencia.js
 application.resource.js.2=/resources/js/app/AppView.js
-application.resource.js.3=/resources/js/app/AppController.js
+application.resource.js.3=/resources/js/app/AppController.js?v=20260928a
 application.resource.js.4=/resources/js/domain/base/BaseController.js
 application.resource.js.5=/resources/js/domain/base/BaseView.js
 application.resource.js.6=/resources/js/domain/base/BaseEventHandler.js
 application.resource.js.7=/resources/js/domain/base/BaseHtmlBuilder.js
+application.resource.js.61=/resources/js/domain/comunicado/ComunicadoConstants.js?v=20261012b
+application.resource.js.62=/resources/js/domain/comunicado/ComunicadoService.js?v=20261012b
+application.resource.js.63=/resources/js/domain/comunicado/ComunicadoHtmlBuilder.js?v=20261021a
+application.resource.js.64=/resources/js/domain/comunicado/ComunicadoEventHandler.js?v=20261012c
+application.resource.js.65=/resources/js/domain/comunicado/ComunicadoView.js?v=20261012b
+application.resource.js.66=/resources/js/domain/comunicado/ComunicadoController.js?v=20261012c
 application.resource.js.71=/resources/js/domain/mobilizador/MobilizadorController.js
 application.resource.js.72=/resources/js/domain/mobilizador/MobilizadorView.js
 application.resource.js.73=/resources/js/domain/mobilizador/MobilizadorEventHandler.js
@@ -38,12 +44,13 @@ application.resource.js.93=/resources/js/domain/diretoria/DiretoriaEventHandler.
 application.resource.js.94=/resources/js/domain/diretoria/DiretoriaHtmlBuilder.js
 application.resource.js.101=/resources/js/helper/DateHelper.js
 application.resource.js.102=/resources/js/helper/StringHelper.js
-application.resource.js.103=/resources/js/utils/FluigUtils.js
-application.resource.js.104=/resources/js/utils/LipekeUtils.js
-application.resource.js.105=/resources/js/libs/jquery.inputmask.js
-application.resource.js.106=/resources/js/libs/sweetalert.js
+application.resource.js.103=/resources/js/libs/sweetalert.js
+application.resource.js.104=/resources/js/utils/FluigUtils.js?v=20260928e
+application.resource.js.105=/resources/js/utils/LipekeUtils.js
+application.resource.js.106=/resources/js/libs/jquery.inputmask.js
 application.resource.css.1=/resources/css/wcm_cedoc_protocolo.css
 application.resource.css.2=/resources/css/lipeke.css
 application.resource.css.3=/resources/css/lipeke_input.css
+application.resource.css.4=/resources/css/comunicado.css?v=20261021a
 application.resource.component.1=fluigorgchart
 application.tenant.code=Faeg

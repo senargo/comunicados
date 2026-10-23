@@ -1,3 +1,17 @@
+var ComunicadoSwalApi = (function () {
+  try {
+    if (typeof Sweetalert2 !== "undefined" && Sweetalert2 && typeof Sweetalert2.fire === "function") {
+      return Sweetalert2;
+    }
+  } catch (eSweet) {}
+  try {
+    if (typeof Swal !== "undefined" && Swal && Swal.version && typeof Swal.fire === "function") {
+      return Swal;
+    }
+  } catch (eSwal) {}
+  return null;
+})();
+
 class FluigUtils {
   static openUrl({ url, newWindow = false, useMobileUrl = false }) {
     let fluigProtocol = "";
@@ -78,6 +92,42 @@ class FluigUtils {
     return new Date(data.split("/").reverse().join("/"));
   }
 
+  static swalApi() {
+    if (ComunicadoSwalApi && typeof ComunicadoSwalApi.fire === "function") {
+      return ComunicadoSwalApi;
+    }
+    try {
+      if (typeof Sweetalert2 !== "undefined" && Sweetalert2 && typeof Sweetalert2.fire === "function") {
+        ComunicadoSwalApi = Sweetalert2;
+        return ComunicadoSwalApi;
+      }
+    } catch (eSweet) {}
+    try {
+      if (typeof Swal !== "undefined" && Swal && Swal.version && typeof Swal.fire === "function") {
+        ComunicadoSwalApi = Swal;
+        return ComunicadoSwalApi;
+      }
+    } catch (eSwal) {}
+    return null;
+  }
+
+  static swalFire(opts) {
+    const api = FluigUtils.swalApi();
+    if (!api || typeof api.fire !== "function") {
+      return Promise.resolve({ isConfirmed: true, isDismissed: false });
+    }
+    try {
+      const ret = api.fire(opts);
+      if (ret && typeof ret.then === "function") {
+        return ret;
+      }
+      return Promise.resolve(ret || { isConfirmed: false, isDismissed: true });
+    } catch (eFire) {
+      console.error("FluigUtils.swalFire", eFire);
+      return Promise.resolve({ isConfirmed: false, isDismissed: true });
+    }
+  }
+
   static toast({
     message,
     type,
@@ -87,12 +137,29 @@ class FluigUtils {
     if (type == 'error')
       timer = 10000;
 
-    Swal.fire({
-      icon: type,
-      title: type == "error" ? "Erro:" : type == "warning" ? "Atenção:" : type == 'info' ? 'Informação' : "Sucesso:",
-      [isHtml ? "html" : "text"]: message,
-      timer,
-    });
+    const titulo = type == "error" ? "Erro:" : type == "warning" ? "Atenção:" : type == 'info' ? 'Informação' : "Sucesso:";
+    const api = FluigUtils.swalApi();
+    if (api && typeof api.fire === "function") {
+      try {
+        api.fire({
+          icon: type,
+          title: titulo,
+          [isHtml ? "html" : "text"]: message,
+          timer,
+        });
+        return;
+      } catch (eToast) {
+        console.error("FluigUtils.toast", eToast);
+      }
+    }
+    if (typeof FLUIGC !== "undefined" && FLUIGC.toast) {
+      FLUIGC.toast({
+        title: titulo,
+        message: message,
+        type: type === "error" ? "danger" : type || "success",
+        timeout: timer,
+      });
+    }
   }
 
   static toMoneyString(number) {
@@ -116,17 +183,17 @@ class FluigUtils {
     icon = 'warning',
     cancelFunction
   }) {
-    Swal.fire({
+    FluigUtils.swalFire({
       title: title,
       [isHtml ? "html" : "text"]: message,
-      icon: target,
+      icon: icon || target,
       showCancelButton: showCancel,
       target: target,
       confirmButtonText: "OK, Confirmar",
       cancelButtonText: "Cancelar",
       allowOutsideClick: false,
     }).then((result) => {
-      if (result.isConfirmed) {
+      if (result && result.isConfirmed) {
         confirmFunction();
       } else {
         if (cancelFunction && typeof cancelFunction == "function") cancelFunction()
@@ -142,42 +209,126 @@ class FluigUtils {
     }
   }
 
+  static fecharLoading() {
+    try {
+      const api = FluigUtils.swalApi();
+      if (api && typeof api.close === "function") {
+        api.close();
+      }
+    } catch (eClose) {}
+    $(".swal2-container").remove();
+    $("html, body").removeClass(
+      "swal2-shown swal2-height-auto swal2-no-backdrop swal2-toast-shown modal-open"
+    );
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+  }
+
+  static limparOverlayModal() {
+    const janelas = [];
+    const incluir = (win) => {
+      try {
+        if (win && janelas.indexOf(win) === -1) {
+          janelas.push(win);
+        }
+      } catch (eWin) {}
+    };
+    incluir(window);
+    try {
+      incluir(parent);
+    } catch (eParent) {}
+    try {
+      incluir(top);
+    } catch (eTop) {}
+
+    janelas.forEach((win) => {
+      var find;
+      try {
+        if (win.jQuery) {
+          find = function (sel) {
+            return win.jQuery(sel);
+          };
+        } else if (win.document) {
+          find = function (sel) {
+            return $(sel, win.document);
+          };
+        } else {
+          return;
+        }
+      } catch (eJq) {
+        return;
+      }
+      try {
+        const $modal = find("#modalComunicado");
+        const $btn = $modal.find('button.close[data-dismiss="modal"]');
+        $btn.css("display", "").show();
+        $btn.trigger("click");
+        try {
+          $modal.modal("hide");
+        } catch (eHide) {}
+        find(".modal-backdrop").remove();
+        find(".modal-scrollable").remove();
+        find("body").removeClass("modal-open");
+        find("html, body").css({ overflow: "", "padding-right": "", "margin-right": "" });
+        if (win.document && win.document.body) {
+          win.document.body.style.overflow = "";
+          win.document.body.style.paddingRight = "";
+        }
+      } catch (eLimpa) {}
+    });
+
+    $(".ui-autocomplete").hide();
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+  }
+
   static initLoading(title, message, fn, miau = true) {
-
-    //MIAU = Método Interno para Ajuste Unificado
-
-    if (miau) {
-
-      return Swal.fire({
-        title: title,
-        html: `<span id="swal2-custom-loading"></span>${message}`,
-        allowEscapeKey: false,
-        allowOutsideClick: false,
-        didOpen: () => {
-          Swal.showLoading()
-          fn()
-            .then(() => $("#swal2-custom-loading").parents().eq(2).remove())
+    return new Promise((resolve, reject) => {
+      var ran = false;
+      var run = async function () {
+        if (ran) return;
+        ran = true;
+        try {
+          const result = await fn();
+          FluigUtils.fecharLoading();
+          resolve(result);
+        } catch (e) {
+          console.error("FluigUtils.initLoading", e);
+          FluigUtils.fecharLoading();
+          reject(e);
         }
-      });
+      };
 
-    } else {
+      const api = FluigUtils.swalApi();
+      if (!api || typeof api.fire !== "function") {
+        run();
+        return;
+      }
 
-      Swal.fire({
-        title: title,
-        html: message,
-        allowEscapeKey: false,
-        allowOutsideClick: false,
-        didOpen: () => {
-          Swal.showLoading()
-          fn()
-            .then(Swal.close)
+      try {
+        const ret = api.fire({
+          title: title,
+          html: `<span id="swal2-custom-loading"></span>${message}`,
+          allowEscapeKey: false,
+          allowOutsideClick: false,
+          showConfirmButton: false,
+          didOpen: async () => {
+            if (typeof api.showLoading === "function") {
+              api.showLoading();
+            }
+            await run();
+          },
+        });
+        if (ret && typeof ret.catch === "function") {
+          ret.catch(function () {});
+        } else if (!api.version) {
+          setTimeout(run, 50);
         }
-      });
-
-    }
-
-    /* Util.initLoading('Pera ai caceta', 'To processando', () => new Promise(resolve => setTimeout(resolve, 3000)), false) */
-
+      } catch (eFire) {
+        console.error("FluigUtils.initLoading fire", eFire);
+        run();
+      }
+    });
   }
 
   static obterLink(numero_processo) {
@@ -455,13 +606,16 @@ class FluigUtils {
       json: jsonData,
     });
 
-    if (data.status == 200) {
-      if (data.response.content && data.response.content.values) {
+    if (data && data.status == 200) {
+      if (data.response && data.response.content && Array.isArray(data.response.content.values)) {
         return data.response.content.values;
+      }
+      if (data.response && data.response.content && (data.response.content.values == null || data.response.content.values === undefined)) {
+        return [];
       }
     }
 
-    throw "Ocorreu um erro ao consultar o dataset. Se o problema persistir, contate a TI.";
+    throw FluigUtils.buildDatasetError(dataset, data);
   }
 
   
@@ -486,13 +640,28 @@ class FluigUtils {
       json: jsonData,
     });
 
-    if (data.status == 200) {
-      if (data.response.content && data.response.content.values) {
+    if (data && data.status == 200) {
+      if (data.response && data.response.content && Array.isArray(data.response.content.values)) {
         return data.response.content.values;
+      }
+      if (data.response && data.response.content && (data.response.content.values == null || data.response.content.values === undefined)) {
+        return [];
       }
     }
 
-    throw "Ocorreu um erro ao consultar o dataset. Se o problema persistir, contate a TI.";
+    throw FluigUtils.buildDatasetError(dataset, data);
+  }
+
+  static buildDatasetError(datasetName, data) {
+    const apiMessage =
+      (data && data.response && (data.response.message || (data.response.content && data.response.content.message))) ||
+      (data && data.message) ||
+      (data && data.statusText) ||
+      "";
+    if (apiMessage) {
+      return "Erro ao consultar o dataset " + datasetName + ": " + apiMessage;
+    }
+    return "Ocorreu um erro ao consultar o dataset " + datasetName + ". Se o problema persistir, contate a TI.";
   }
 
   static initJqueryDatatable(id) {
@@ -512,6 +681,15 @@ class FluigUtils {
           last: "Último",
         },
       },
+    });
+  }
+
+  static fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
     });
   }
 

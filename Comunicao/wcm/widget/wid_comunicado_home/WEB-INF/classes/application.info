@@ -1,0 +1,18 @@
+application.type=widget
+application.code=wid_comunicado_home
+application.title=Comunicado e Ciência - Home
+application.description=Exibe automaticamente os comunicados ativos na Home do Fluig
+application.category=CEDOC
+application.renderer=freemarker
+developer.code=khyquer
+developer.name=Khyquer Ronaldy
+developer.url=http://fluig.sistemafaeg.org.br
+application.uiwidget=true
+application.mobileapp=true
+application.version=1.8.4-20261021h
+view.file=view.ftl
+edit.file=edit.ftl
+locale.file.base.name=wid_comunicado_home
+application.resource.js.1=/resources/js/wid_comunicado_home.js?v=20261021h
+application.resource.css.1=/resources/css/wid_comunicado_home.css?v=20261021h
+application.tenant.code=Faeg
