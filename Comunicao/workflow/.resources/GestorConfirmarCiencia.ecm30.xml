@@ -7,7 +7,7 @@
     <processDescription>Comunicado e Ciência</processDescription>
     <instruction></instruction>
     <active>true</active>
-    <publicProcess>true</publicProcess>
+    <publicProcess>false</publicProcess>
     <volumeId>Default</volumeId>
     <categoryId>CEDOC</categoryId>
     <managerEngineAllocationId></managerEngineAllocationId>
@@ -27,14 +27,14 @@
   <ProcessDefinitionVersion>
     <processDefinitionVersionPK>
       <companyId>1</companyId>
-      <processId>GestorConfirmarCiencia</processId>
-      <version>1</version>
+      <processId>Comunicado e Ciência</processId>
+      <version>20</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
-    <formId>0</formId>
-    <editionMode>false</editionMode>
+    <formId>3739521</formId>
+    <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
-    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <controlsAttachmentsSecurity>true</controlsAttachmentsSecurity>
     <active>true</active>
     <blockedVersion>false</blockedVersion>
     <counterSign>false</counterSign>
@@ -152,21 +152,94 @@
         <companyId>1</companyId>
         <processId>GestorConfirmarCiencia</processId>
         <version>1</version>
-        <sequence>12</sequence>
+        <sequence>17</sequence>
       </processStatePK>
-      <stateName>Arquivar</stateName>
-      <stateDescription>Arquivar</stateDescription>
-      <instruction></instruction>
+      <stateName>Aguardar publicação</stateName>
+      <stateDescription>Aguardar publicação</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
       <engineAllocationId></engineAllocationId>
-      <selectColleague>1</selectColleague>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
       <initialState>false</initialState>
-      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>true</automatic>
+      <positionX>400</positionX>
+      <positionY>250</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>32</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>GestorConfirmarCiencia</processId>
+        <version>1</version>
+        <sequence>20</sequence>
+      </processStatePK>
+      <stateName>Agendado?</stateName>
+      <stateDescription>Agendado?</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>390</positionX>
+      <positionY>185</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>GestorConfirmarCiencia</processId>
+        <version>1</version>
+        <sequence>12</sequence>
+      </processStatePK>
+      <stateName>Arquivar</stateName>
+      <stateDescription>Arquivar</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
       <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
       <allowanceAuthorityTime>0</allowanceAuthorityTime>
-      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
       <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
       <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
       <transferAttachments>false</transferAttachments>
@@ -185,7 +258,7 @@
       <frequenceManagerTime>0</frequenceManagerTime>
       <inhibitTransfer>false</inhibitTransfer>
       <periodId></periodId>
-      <stateType>1</stateType>
+      <stateType>6</stateType>
       <bpmnType>60</bpmnType>
       <signalId>0</signalId>
       <counterSign>false</counterSign>
@@ -193,100 +266,33 @@
       <destinationStates/>
       <digitalSignature>false</digitalSignature>
     </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>GestorConfirmarCiencia</processId>
-        <version>1</version>
-        <sequence>17</sequence>
-      </processStatePK>
-      <stateName>Aguardar publicação</stateName>
-      <stateDescription>Aguardar publicação</stateDescription>
-      <instruction></instruction>
-      <deadlineTime>0</deadlineTime>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId></engineAllocationId>
-      <selectColleague>1</selectColleague>
-      <initialState>false</initialState>
-      <notifyAuthorityDelay>false</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>0</allowanceAuthorityTime>
-      <frequenceAuthorityTime>0</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>true</automatic>
-      <positionX>400</positionX>
-      <positionY>250</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>0</stateType>
-      <bpmnType>32</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <destinationStates/>
-      <digitalSignature>false</digitalSignature>
-    </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>GestorConfirmarCiencia</processId>
-        <version>1</version>
-        <sequence>20</sequence>
-      </processStatePK>
-      <stateName>Agendado?</stateName>
-      <stateDescription>Agendado?</stateDescription>
-      <instruction></instruction>
-      <deadlineTime>0</deadlineTime>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId></engineAllocationId>
-      <selectColleague>1</selectColleague>
-      <initialState>false</initialState>
-      <notifyAuthorityDelay>false</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>0</allowanceAuthorityTime>
-      <frequenceAuthorityTime>0</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>true</automatic>
-      <positionX>390</positionX>
-      <positionY>185</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>2</stateType>
-      <bpmnType>120</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <destinationStates/>
-      <digitalSignature>false</digitalSignature>
-    </ProcessState>
   </list>
-  <list/>
+  <list>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>GestorConfirmarCiencia</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>20</version>
+        <sequence>20</sequence>
+      </conditionProcessStatePK>
+      <condition></condition>
+      <destinationSequenceId>17</destinationSequenceId>
+      <conditionType>1</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>GestorConfirmarCiencia</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>20</version>
+        <sequence>20</sequence>
+      </conditionProcessStatePK>
+      <condition></condition>
+      <destinationSequenceId>12</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+  </list>
   <list>
     <ProcessLink>
       <processLinkPK>
@@ -310,16 +316,33 @@
         <companyId>1</companyId>
         <processId>GestorConfirmarCiencia</processId>
         <version>1</version>
+        <linkSequence>11</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>7</initialStateSequence>
+      <finalStateSequence>20</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>GestorConfirmarCiencia</processId>
+        <version>1</version>
         <linkSequence>8</linkSequence>
       </processLinkPK>
-      <actionLabel>Publicar</actionLabel>
+      <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>20</initialStateSequence>
       <finalStateSequence>12</finalStateSequence>
       <returnLabel></returnLabel>
       <name>Publicar</name>
-      <automaticLink>true</automaticLink>
-      <defaultLink>true</defaultLink>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
       <type>0</type>
     </ProcessLink>
     <ProcessLink>
@@ -329,30 +352,13 @@
         <version>1</version>
         <linkSequence>9</linkSequence>
       </processLinkPK>
-      <actionLabel>Aguardar publicação</actionLabel>
+      <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>20</initialStateSequence>
       <finalStateSequence>17</finalStateSequence>
       <returnLabel></returnLabel>
       <name>Aguardar publicação</name>
-      <automaticLink>true</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>GestorConfirmarCiencia</processId>
-        <version>1</version>
-        <linkSequence>11</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>7</initialStateSequence>
-      <finalStateSequence>20</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>true</automaticLink>
+      <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
     </ProcessLink>
@@ -369,13 +375,530 @@
       <finalStateSequence>7</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
-      <automaticLink>true</automaticLink>
+      <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
     </ProcessLink>
   </list>
-  <list/>
-  <list/>
+  <list>
+    <ProcessAttachmentSecurity>
+      <processAttachmentSecurityPK>
+        <companyId>1</companyId>
+        <processId>GestorConfirmarCiencia</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </processAttachmentSecurityPK>
+      <engineAllocationId>Todos os Usuários</engineAllocationId>
+      <accessLevel>PRMOED</accessLevel>
+      <editionMode>true</editionMode>
+    </ProcessAttachmentSecurity>
+  </list>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterProcessCreate</eventId>
+        <processId>GestorConfirmarCiencia</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterProcessCreate(processId) {&#xd;
+  hAPI.setCardValue(&quot;numero_processo&quot;, processId);&#xd;
+&#xd;
+  var titulo = hAPI.getCardValue(&quot;titulo&quot;) || &quot;&quot;;&#xd;
+  hAPI.setCardValue(&quot;campo_descritor&quot;, &quot;Comunicado &quot; + titulo);&#xd;
+&#xd;
+  if (!hAPI.getCardValue(&quot;data_criacao&quot;)) {&#xd;
+    var sdtf = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);&#xd;
+    hAPI.setCardValue(&quot;data_criacao&quot;, sdtf.format(new java.util.Date()));&#xd;
+  }&#xd;
+&#xd;
+  if (!hAPI.getCardValue(&quot;criado_por&quot;)) {&#xd;
+    hAPI.setCardValue(&quot;criado_por&quot;, getValue(&quot;WKUser&quot;));&#xd;
+  }&#xd;
+&#xd;
+  if (!hAPI.getCardValue(&quot;tipo_conteudo&quot;)) {&#xd;
+    hAPI.setCardValue(&quot;tipo_conteudo&quot;, &quot;pdf&quot;);&#xd;
+  }&#xd;
+&#xd;
+  if (!hAPI.getCardValue(&quot;texto_botao_acao&quot;)) {&#xd;
+    hAPI.setCardValue(&quot;texto_botao_acao&quot;, &quot;Ciente&quot;);&#xd;
+  }&#xd;
+&#xd;
+  normalizeCardFlag(&quot;cancelado&quot;);&#xd;
+  normalizeCardFlag(&quot;excluido&quot;);&#xd;
+  normalizeCardFlag(&quot;publicado&quot;);&#xd;
+  normalizeCardFlag(&quot;sem_data_expiracao&quot;);&#xd;
+  normalizeCardFlag(&quot;exibir_popup&quot;);&#xd;
+  normalizeCardFlag(&quot;agendamento_futuro&quot;);&#xd;
+&#xd;
+  aplicarStatusInicial();&#xd;
+}&#xd;
+&#xd;
+function aplicarStatusInicial() {&#xd;
+  if (hAPI.getCardValue(&quot;cancelado&quot;) == &quot;S&quot; || hAPI.getCardValue(&quot;excluido&quot;) == &quot;S&quot;) {&#xd;
+    hAPI.setCardValue(&quot;status&quot;, &quot;CANCELADO&quot;);&#xd;
+    return;&#xd;
+  }&#xd;
+&#xd;
+  var today = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(new java.util.Date());&#xd;
+  var dataInicio = String(hAPI.getCardValue(&quot;data_inicio&quot;) || &quot;&quot;).substring(0, 10);&#xd;
+  var dataFim = String(hAPI.getCardValue(&quot;data_fim&quot;) || &quot;&quot;).substring(0, 10);&#xd;
+  var semExpiracao = hAPI.getCardValue(&quot;sem_data_expiracao&quot;) == &quot;S&quot;;&#xd;
+&#xd;
+  if (!semExpiracao &amp;&amp; dataFim &amp;&amp; dataFim &lt; today) {&#xd;
+    hAPI.setCardValue(&quot;status&quot;, &quot;EXPIRADO&quot;);&#xd;
+    return;&#xd;
+  }&#xd;
+&#xd;
+  if (dataInicio &amp;&amp; dataInicio &gt; today) {&#xd;
+    hAPI.setCardValue(&quot;status&quot;, &quot;AGENDADO&quot;);&#xd;
+    hAPI.setCardValue(&quot;publicado&quot;, &quot;N&quot;);&#xd;
+    return;&#xd;
+  }&#xd;
+&#xd;
+  if (!hAPI.getCardValue(&quot;status&quot;)) {&#xd;
+    hAPI.setCardValue(&quot;status&quot;, &quot;AGENDADO&quot;);&#xd;
+  }&#xd;
+}&#xd;
+&#xd;
+function normalizeCardFlag(field) {&#xd;
+  if (hAPI.getCardValue(field) != &quot;S&quot;) {&#xd;
+    hAPI.setCardValue(field, &quot;N&quot;);&#xd;
+  }&#xd;
+}&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterTaskSave</eventId>
+        <processId>GestorConfirmarCiencia</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterTaskSave(colleagueId, nextSequenceId, userList) {&#xd;
+  var titulo = hAPI.getCardValue(&quot;titulo&quot;) || &quot;&quot;;&#xd;
+  hAPI.setCardValue(&quot;campo_descritor&quot;, &quot;Comunicado &quot; + titulo);&#xd;
+&#xd;
+  var WKNumProces = getValue(&quot;WKNumProces&quot;);&#xd;
+  if (WKNumProces) {&#xd;
+    hAPI.setCardValue(&quot;numero_processo&quot;, WKNumProces);&#xd;
+  }&#xd;
+&#xd;
+  if (hAPI.getCardValue(&quot;sem_data_expiracao&quot;) != &quot;S&quot;) {&#xd;
+    hAPI.setCardValue(&quot;sem_data_expiracao&quot;, &quot;N&quot;);&#xd;
+  }&#xd;
+  if (hAPI.getCardValue(&quot;exibir_popup&quot;) != &quot;S&quot;) {&#xd;
+    hAPI.setCardValue(&quot;exibir_popup&quot;, &quot;N&quot;);&#xd;
+  }&#xd;
+  if (hAPI.getCardValue(&quot;agendamento_futuro&quot;) != &quot;S&quot;) {&#xd;
+    hAPI.setCardValue(&quot;agendamento_futuro&quot;, &quot;N&quot;);&#xd;
+  }&#xd;
+  if (hAPI.getCardValue(&quot;cancelado&quot;) != &quot;S&quot;) {&#xd;
+    hAPI.setCardValue(&quot;cancelado&quot;, &quot;N&quot;);&#xd;
+  }&#xd;
+  if (hAPI.getCardValue(&quot;excluido&quot;) != &quot;S&quot;) {&#xd;
+    hAPI.setCardValue(&quot;excluido&quot;, &quot;N&quot;);&#xd;
+  }&#xd;
+}&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask7</eventId>
+        <processId>GestorConfirmarCiencia</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>/**&#xd;
+ * Comunicado mestre (GestorConfirmarCiencia).&#xd;
+ * Cria ciências (ConfirmarCiencia) por destinatário.&#xd;
+ * Status: AGENDADO (data futura ou lote pendente) | ATIVO | EXPIRADO | CANCELADO.&#xd;
+ * Gateway: AGENDADO → timer diário → esta tarefa; demais → Arquivar.&#xd;
+ */&#xd;
+function servicetask7(attempt, message) {&#xd;
+  var today = hojeIso();&#xd;
+  var numeroProcesso = String(getValue(&quot;WKNumProces&quot;) || &quot;&quot;);&#xd;
+  hAPI.setCardValue(&quot;numero_processo&quot;, numeroProcesso);&#xd;
+&#xd;
+  if (estaEncerrado()) {&#xd;
+    definirStatus(&quot;CANCELADO&quot;);&#xd;
+    return;&#xd;
+  }&#xd;
+&#xd;
+  if (estaExpirado(today)) {&#xd;
+    definirStatus(&quot;EXPIRADO&quot;);&#xd;
+    return;&#xd;
+  }&#xd;
+&#xd;
+  if (estaAgendado(today)) {&#xd;
+    definirStatus(&quot;AGENDADO&quot;);&#xd;
+    hAPI.setCardValue(&quot;publicado&quot;, &quot;N&quot;);&#xd;
+    return;&#xd;
+  }&#xd;
+&#xd;
+  var destinatarios = resolverPublico();&#xd;
+  if (!destinatarios.length) {&#xd;
+    throw &quot;Nenhum destinatário encontrado para o público-alvo informado (após exceções).&quot;;&#xd;
+  }&#xd;
+&#xd;
+  var jaDisparados = parseJsonList(hAPI.getCardValue(&quot;usuarios_disparados&quot;));&#xd;
+  var mapaDisparados = {};&#xd;
+  for (var d = 0; d &lt; jaDisparados.length; d++) {&#xd;
+    mapaDisparados[String(jaDisparados[d])] = true;&#xd;
+  }&#xd;
+&#xd;
+  var LIMITE_LOTE = 8;&#xd;
+  var publicados = 0;&#xd;
+  var erros = [];&#xd;
+  var restantes = 0;&#xd;
+&#xd;
+  for (var i = 0; i &lt; destinatarios.length; i++) {&#xd;
+    var user = destinatarios[i];&#xd;
+    var userCode = String(user.USER_CODE || &quot;&quot;);&#xd;
+    if (!userCode || mapaDisparados[userCode]) {&#xd;
+      continue;&#xd;
+    }&#xd;
+    if (publicados &gt;= LIMITE_LOTE) {&#xd;
+      restantes++;&#xd;
+      continue;&#xd;
+    }&#xd;
+    try {&#xd;
+      startCiencia(user, numeroProcesso);&#xd;
+      jaDisparados.push(userCode);&#xd;
+      mapaDisparados[userCode] = true;&#xd;
+      publicados++;&#xd;
+      hAPI.setCardValue(&quot;usuarios_disparados&quot;, toJson(jaDisparados));&#xd;
+    } catch (e) {&#xd;
+      erros.push(userCode + &quot;: &quot; + e);&#xd;
+      log.error(&quot;GestorConfirmarCiencia startCiencia &quot; + userCode + &quot;: &quot; + e);&#xd;
+    }&#xd;
+  }&#xd;
+&#xd;
+  hAPI.setCardValue(&quot;qtd_destinatarios&quot;, String(destinatarios.length));&#xd;
+&#xd;
+  if (publicados === 0 &amp;&amp; erros.length &amp;&amp; restantes === 0 &amp;&amp; jaDisparados.length === 0) {&#xd;
+    throw &quot;Falha ao criar ciências. Primeiro erro: &quot; + erros[0];&#xd;
+  }&#xd;
+&#xd;
+  if (restantes &gt; 0) {&#xd;
+    definirStatus(&quot;AGENDADO&quot;);&#xd;
+    hAPI.setCardValue(&quot;publicado&quot;, &quot;N&quot;);&#xd;
+    log.info(&quot;GestorConfirmarCiencia lote: &quot; + publicados + &quot; disparados, &quot; + restantes + &quot; pendentes.&quot;);&#xd;
+    return;&#xd;
+  }&#xd;
+&#xd;
+  definirStatus(&quot;ATIVO&quot;);&#xd;
+  hAPI.setCardValue(&quot;publicado&quot;, &quot;S&quot;);&#xd;
+}&#xd;
+&#xd;
+function estaEncerrado() {&#xd;
+  return hAPI.getCardValue(&quot;cancelado&quot;) == &quot;S&quot; || hAPI.getCardValue(&quot;excluido&quot;) == &quot;S&quot;;&#xd;
+}&#xd;
+&#xd;
+function estaExpirado(today) {&#xd;
+  var semExpiracao = hAPI.getCardValue(&quot;sem_data_expiracao&quot;) == &quot;S&quot;;&#xd;
+  var dataFim = isoDate(hAPI.getCardValue(&quot;data_fim&quot;));&#xd;
+  return !semExpiracao &amp;&amp; dataFim &amp;&amp; dataFim &lt; today;&#xd;
+}&#xd;
+&#xd;
+function estaAgendado(today) {&#xd;
+  var dataInicio = isoDate(hAPI.getCardValue(&quot;data_inicio&quot;));&#xd;
+  return dataInicio &amp;&amp; dataInicio &gt; today;&#xd;
+}&#xd;
+&#xd;
+function definirStatus(status) {&#xd;
+  hAPI.setCardValue(&quot;status&quot;, status);&#xd;
+}&#xd;
+&#xd;
+function hojeIso() {&#xd;
+  return new java.text.SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(new java.util.Date());&#xd;
+}&#xd;
+&#xd;
+function isoDate(value) {&#xd;
+  var texto = String(value || &quot;&quot;);&#xd;
+  return texto.length &gt;= 10 ? texto.substring(0, 10) : &quot;&quot;;&#xd;
+}&#xd;
+&#xd;
+function resolverPublico() {&#xd;
+  var tipo = nvl(hAPI.getCardValue(&quot;publico_tipo&quot;), &quot;todos&quot;);&#xd;
+  var mapa = {};&#xd;
+&#xd;
+  if (tipo == &quot;todos&quot;) {&#xd;
+    mesclarUsuarios(mapa, listarUsuariosDoGrupo(&quot;&quot;));&#xd;
+  } else {&#xd;
+    var grupos = parseJsonList(hAPI.getCardValue(&quot;publico_grupos&quot;));&#xd;
+    for (var g = 0; g &lt; grupos.length; g++) {&#xd;
+      var groupId = getProp(grupos[g], &quot;groupId&quot;);&#xd;
+      if (groupId) {&#xd;
+        mesclarUsuarios(mapa, listarUsuariosDoGrupo(groupId));&#xd;
+      }&#xd;
+    }&#xd;
+&#xd;
+    var usuarios = parseJsonList(hAPI.getCardValue(&quot;publico_usuarios&quot;));&#xd;
+    for (var u = 0; u &lt; usuarios.length; u++) {&#xd;
+      var userCode = getProp(usuarios[u], &quot;USER_CODE&quot;);&#xd;
+      if (userCode) {&#xd;
+        mapa[userCode] = buscarColleague(userCode, getProp(usuarios[u], &quot;NOME&quot;));&#xd;
+      }&#xd;
+    }&#xd;
+  }&#xd;
+&#xd;
+  var excecaoGrupos = parseJsonList(hAPI.getCardValue(&quot;excecao_grupos&quot;));&#xd;
+  for (var eg = 0; eg &lt; excecaoGrupos.length; eg++) {&#xd;
+    var excGroup = getProp(excecaoGrupos[eg], &quot;groupId&quot;);&#xd;
+    if (!excGroup) {&#xd;
+      continue;&#xd;
+    }&#xd;
+    var usuariosExcGrupo = listarUsuariosDoGrupo(excGroup);&#xd;
+    for (var x = 0; x &lt; usuariosExcGrupo.length; x++) {&#xd;
+      delete mapa[usuariosExcGrupo[x].USER_CODE];&#xd;
+    }&#xd;
+  }&#xd;
+&#xd;
+  var excecaoUsuarios = parseJsonList(hAPI.getCardValue(&quot;excecao_usuarios&quot;));&#xd;
+  for (var eu = 0; eu &lt; excecaoUsuarios.length; eu++) {&#xd;
+    var excUser = getProp(excecaoUsuarios[eu], &quot;USER_CODE&quot;);&#xd;
+    if (excUser) {&#xd;
+      delete mapa[excUser];&#xd;
+    }&#xd;
+  }&#xd;
+&#xd;
+  var resultado = [];&#xd;
+  for (var key in mapa) {&#xd;
+    if (mapa[key] &amp;&amp; mapa[key].USER_CODE) {&#xd;
+      resultado.push(mapa[key]);&#xd;
+    }&#xd;
+  }&#xd;
+  return resultado;&#xd;
+}&#xd;
+&#xd;
+function listarUsuariosDoGrupo(grupo) {&#xd;
+  var constraints = [];&#xd;
+  if (grupo) {&#xd;
+    constraints.push(DatasetFactory.createConstraint(&quot;GRUPO&quot;, grupo, grupo, ConstraintType.MUST));&#xd;
+  }&#xd;
+&#xd;
+  var ds = DatasetFactory.getDataset(&#xd;
+    &quot;ds_fluig_jdbc_getUsersOfGroup&quot;,&#xd;
+    null,&#xd;
+    constraints.length ? constraints : null,&#xd;
+    null&#xd;
+  );&#xd;
+  var users = [];&#xd;
+  if (ds == null || ds.rowsCount == 0) {&#xd;
+    return users;&#xd;
+  }&#xd;
+  try {&#xd;
+    var erro = ds.getValue(0, &quot;ERRO&quot;);&#xd;
+    if (erro) {&#xd;
+      log.error(&quot;ds_fluig_jdbc_getUsersOfGroup: &quot; + erro);&#xd;
+      return users;&#xd;
+    }&#xd;
+  } catch (eErro) {}&#xd;
+&#xd;
+  for (var i = 0; i &lt; ds.rowsCount; i++) {&#xd;
+    var userCode = ds.getValue(i, &quot;USER_CODE&quot;);&#xd;
+    if (!userCode) {&#xd;
+      continue;&#xd;
+    }&#xd;
+    users.push({&#xd;
+      USER_CODE: String(userCode),&#xd;
+      FULL_NAME: nvl(ds.getValue(i, &quot;NOME&quot;), nvl(ds.getValue(i, &quot;FULL_NAME&quot;), String(userCode))),&#xd;
+      EMAIL: nvl(ds.getValue(i, &quot;EMAIL&quot;), &quot;&quot;),&#xd;
+    });&#xd;
+  }&#xd;
+  return users;&#xd;
+}&#xd;
+&#xd;
+function buscarColleague(userCode, nomeFallback) {&#xd;
+  try {&#xd;
+    var c1 = DatasetFactory.createConstraint(&quot;colleaguePK.colleagueId&quot;, userCode, userCode, ConstraintType.MUST);&#xd;
+    var ds = DatasetFactory.getDataset(&quot;colleague&quot;, null, [c1], null);&#xd;
+    if (ds != null &amp;&amp; ds.rowsCount &gt; 0) {&#xd;
+      var ativo = ds.getValue(0, &quot;active&quot;);&#xd;
+      if (String(ativo).toLowerCase() == &quot;false&quot;) {&#xd;
+        return { USER_CODE: &quot;&quot;, FULL_NAME: &quot;&quot; };&#xd;
+      }&#xd;
+      return {&#xd;
+        USER_CODE: String(userCode),&#xd;
+        FULL_NAME: nvl(ds.getValue(0, &quot;colleagueName&quot;), nomeFallback),&#xd;
+        EMAIL: nvl(ds.getValue(0, &quot;mail&quot;), &quot;&quot;),&#xd;
+      };&#xd;
+    }&#xd;
+  } catch (e) {&#xd;
+    log.error(&quot;GestorConfirmarCiencia colleague &quot; + userCode + &quot;: &quot; + e);&#xd;
+  }&#xd;
+  return {&#xd;
+    USER_CODE: String(userCode),&#xd;
+    FULL_NAME: nvl(nomeFallback, userCode),&#xd;
+    EMAIL: &quot;&quot;,&#xd;
+  };&#xd;
+}&#xd;
+&#xd;
+function startCiencia(user, numeroProcesso) {&#xd;
+  var lista = new java.util.ArrayList();&#xd;
+  lista.add(user.USER_CODE);&#xd;
+&#xd;
+  var titulo = nvl(hAPI.getCardValue(&quot;titulo&quot;), &quot;&quot;);&#xd;
+  var descricao = nvl(hAPI.getCardValue(&quot;descricao&quot;), &quot;&quot;);&#xd;
+  var agora = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());&#xd;
+&#xd;
+  var valores = new java.util.HashMap();&#xd;
+  valores.put(&quot;assunto&quot;, titulo);&#xd;
+  valores.put(&quot;observacao&quot;, descricao);&#xd;
+  valores.put(&quot;campo_descritor&quot;, &quot;Confirmar ciência &quot; + titulo);&#xd;
+  valores.put(&quot;data_solicitacao&quot;, agora);&#xd;
+  valores.put(&quot;usuario_matricula&quot;, user.USER_CODE);&#xd;
+  valores.put(&quot;usuario_nome&quot;, nvl(user.FULL_NAME, user.USER_CODE));&#xd;
+  valores.put(&quot;usuario_email&quot;, nvl(user.EMAIL, &quot;&quot;));&#xd;
+  valores.put(&quot;numero_processo_pai&quot;, numeroProcesso);&#xd;
+  valores.put(&quot;processo_origem&quot;, &quot;COMUNICADO&quot;);&#xd;
+  valores.put(&quot;documentos_anexos&quot;, nvl(hAPI.getCardValue(&quot;documentos_anexos&quot;), &quot;[]&quot;));&#xd;
+  valores.put(&quot;tipo_conteudo&quot;, nvl(hAPI.getCardValue(&quot;tipo_conteudo&quot;), &quot;pdf&quot;));&#xd;
+  valores.put(&quot;url_conteudo&quot;, nvl(hAPI.getCardValue(&quot;url_conteudo&quot;), &quot;&quot;));&#xd;
+  valores.put(&quot;texto_botao_acao&quot;, nvl(hAPI.getCardValue(&quot;texto_botao_acao&quot;), &quot;Ciente&quot;));&#xd;
+  valores.put(&quot;exibir_popup&quot;, nvl(hAPI.getCardValue(&quot;exibir_popup&quot;), &quot;N&quot;));&#xd;
+&#xd;
+  var resposta = hAPI.startProcess(&quot;ConfirmarCiencia&quot;, 0, lista, &quot;Comunicado institucional&quot;, true, valores, false);&#xd;
+  var numCiencia = extrairNumeroProcesso(resposta);&#xd;
+  if (numCiencia) {&#xd;
+    gravarNumeroNaCiencia(numCiencia, agora);&#xd;
+  }&#xd;
+}&#xd;
+&#xd;
+function extrairNumeroProcesso(resposta) {&#xd;
+  if (resposta == null) {&#xd;
+    return &quot;&quot;;&#xd;
+  }&#xd;
+  try {&#xd;
+    if (typeof resposta.get === &quot;function&quot;) {&#xd;
+      var viaMap = resposta.get(&quot;iProcess&quot;);&#xd;
+      if (viaMap != null &amp;&amp; String(viaMap) != &quot;&quot;) {&#xd;
+        return String(viaMap);&#xd;
+      }&#xd;
+    }&#xd;
+  } catch (eMap) {}&#xd;
+  var texto = String(resposta);&#xd;
+  if (texto &amp;&amp; texto != &quot;undefined&quot; &amp;&amp; texto != &quot;null&quot;) {&#xd;
+    return texto.replace(/[^0-9]/g, &quot;&quot;);&#xd;
+  }&#xd;
+  return &quot;&quot;;&#xd;
+}&#xd;
+&#xd;
+function obterCardIdDoProcesso(numProces) {&#xd;
+  var c1 = DatasetFactory.createConstraint(&#xd;
+    &quot;workflowProcessPK.processInstanceId&quot;,&#xd;
+    String(numProces),&#xd;
+    String(numProces),&#xd;
+    ConstraintType.MUST&#xd;
+  );&#xd;
+  var ds = DatasetFactory.getDataset(&quot;workflowProcess&quot;, null, [c1], null);&#xd;
+  if (ds == null || ds.rowsCount == 0) {&#xd;
+    return &quot;&quot;;&#xd;
+  }&#xd;
+  var colunas = [&quot;cardDocumentId&quot;, &quot;documentId&quot;, &quot;cardId&quot;];&#xd;
+  for (var i = 0; i &lt; colunas.length; i++) {&#xd;
+    try {&#xd;
+      var valor = ds.getValue(0, colunas[i]);&#xd;
+      if (valor != null &amp;&amp; String(valor) != &quot;&quot;) {&#xd;
+        return String(valor);&#xd;
+      }&#xd;
+    } catch (eCol) {}&#xd;
+  }&#xd;
+  return &quot;&quot;;&#xd;
+}&#xd;
+&#xd;
+function campoFicha(id, valor) {&#xd;
+  var campo = new com.fluig.sdk.api.cardindex.CardFieldVO();&#xd;
+  campo.setFieldId(id);&#xd;
+  campo.setValue(String(valor));&#xd;
+  return campo;&#xd;
+}&#xd;
+&#xd;
+function gravarNumeroNaCiencia(numCiencia, agora) {&#xd;
+  try {&#xd;
+    var card = hAPI.getCardData(java.lang.Integer.parseInt(String(numCiencia)));&#xd;
+    if (card != null &amp;&amp; nvl(card.get(&quot;numero_processo&quot;), &quot;&quot;) != &quot;&quot;) {&#xd;
+      return;&#xd;
+    }&#xd;
+  } catch (eLeitura) {&#xd;
+    log.error(&quot;GestorConfirmarCiencia getCardData ciência &quot; + numCiencia + &quot;: &quot; + eLeitura);&#xd;
+  }&#xd;
+&#xd;
+  try {&#xd;
+    var cardId = obterCardIdDoProcesso(numCiencia);&#xd;
+    if (!cardId) {&#xd;
+      log.error(&quot;GestorConfirmarCiencia cardId não encontrado para ciência &quot; + numCiencia);&#xd;
+      return;&#xd;
+    }&#xd;
+    var campos = new java.util.ArrayList();&#xd;
+    campos.add(campoFicha(&quot;numero_processo&quot;, numCiencia));&#xd;
+    if (agora) {&#xd;
+      campos.add(campoFicha(&quot;data_solicitacao&quot;, agora));&#xd;
+    }&#xd;
+    fluigAPI.getCardAPIService().edit(java.lang.Integer.parseInt(String(cardId)), campos);&#xd;
+  } catch (eEdit) {&#xd;
+    log.error(&quot;GestorConfirmarCiencia edit ciência &quot; + numCiencia + &quot;: &quot; + eEdit);&#xd;
+  }&#xd;
+}&#xd;
+&#xd;
+function mesclarUsuarios(mapa, lista) {&#xd;
+  for (var i = 0; i &lt; lista.length; i++) {&#xd;
+    var user = lista[i];&#xd;
+    if (user &amp;&amp; user.USER_CODE &amp;&amp; !mapa[user.USER_CODE]) {&#xd;
+      mapa[user.USER_CODE] = user;&#xd;
+    }&#xd;
+  }&#xd;
+}&#xd;
+&#xd;
+function parseJsonList(raw) {&#xd;
+  if (raw == null || String(raw).trim() == &quot;&quot; || String(raw) == &quot;[]&quot;) {&#xd;
+    return [];&#xd;
+  }&#xd;
+  var list = [];&#xd;
+  try {&#xd;
+    var parsed = JSON.parse(String(raw));&#xd;
+    if (parsed &amp;&amp; parsed.length != null) {&#xd;
+      for (var i = 0; i &lt; parsed.length; i++) {&#xd;
+        list.push(parsed[i]);&#xd;
+      }&#xd;
+    }&#xd;
+  } catch (e) {&#xd;
+    log.error(&quot;GestorConfirmarCiencia parseJsonList: &quot; + e);&#xd;
+  }&#xd;
+  return list;&#xd;
+}&#xd;
+&#xd;
+function getProp(obj, key) {&#xd;
+  if (obj == null) {&#xd;
+    return &quot;&quot;;&#xd;
+  }&#xd;
+  if (typeof obj.get === &quot;function&quot;) {&#xd;
+    var viaGet = obj.get(key);&#xd;
+    if (viaGet != null &amp;&amp; String(viaGet) != &quot;&quot;) {&#xd;
+      return String(viaGet);&#xd;
+    }&#xd;
+  }&#xd;
+  if (obj[key] != null &amp;&amp; String(obj[key]) != &quot;&quot;) {&#xd;
+    return String(obj[key]);&#xd;
+  }&#xd;
+  return &quot;&quot;;&#xd;
+}&#xd;
+&#xd;
+function nvl(value, fallback) {&#xd;
+  return value == null || String(value) == &quot;&quot; ? fallback : String(value);&#xd;
+}&#xd;
+&#xd;
+function toJson(value) {&#xd;
+  try {&#xd;
+    return JSON.stringify(value);&#xd;
+  } catch (e) {&#xd;
+    return JSONUtil.toJSON(value);&#xd;
+  }&#xd;
+}&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
   <list/>
   <list>
     <SwimLane>
@@ -434,7 +957,7 @@
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>GestorConfirmarCiencia</processId>
-        <version>1</version>
+        <version>20</version>
         <linkSequence>6</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -442,17 +965,42 @@
       <positionY>235</positionY>
     </ProcessLinkBend>
   </list>
+  <list>
+    <ProcessStateTrigger>
+      <processStateTriggerPK>
+        <companyId>1</companyId>
+        <processId>GestorConfirmarCiencia</processId>
+        <version>20</version>
+        <stateSequence>17</stateSequence>
+        <triggerSequence>0</triggerSequence>
+      </processStateTriggerPK>
+      <runType>2</runType>
+      <type>2</type>
+      <timeTrigger>0:0:0</timeTrigger>
+      <frequencia>01</frequencia>
+    </ProcessStateTrigger>
+  </list>
   <list/>
-  <list/>
-  <list/>
+  <list>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>GestorConfirmarCiencia</processId>
+        <fieldId>campo_descritor</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Descrição</fieldDescription>
+      <slotId>1</slotId>
+    </ProcessFormField>
+  </list>
   <list>
     <ProcessStateService>
       <companyId>1</companyId>
       <processId>GestorConfirmarCiencia</processId>
       <version>1</version>
       <sequence>7</sequence>
-      <attempts>1</attempts>
+      <attempts>0</attempts>
       <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
       <frequency>1</frequency>
       <frequencyType>0</frequencyType>
     </ProcessStateService>
@@ -460,5 +1008,15 @@
   <list/>
   <list/>
   <list/>
-  <list/>
+  <list>
+    <ConditionProcessAutomaticRules>
+      <sequence>20</sequence>
+      <expressionOrder>1</expressionOrder>
+      <ruleOrder>1</ruleOrder>
+      <field>status</field>
+      <value>AGENDADO</value>
+      <operator>1</operator>
+      <valueType>1</valueType>
+    </ConditionProcessAutomaticRules>
+  </list>
 </list>
